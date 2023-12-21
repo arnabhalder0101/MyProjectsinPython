@@ -7,8 +7,6 @@ list_to_do = []
 list_to_do_time = []
 list_of_deadline = []
 combineTime = []
-notifyTime = []
-notifyDeadline = []
 Quotes = [
     "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. -Christian D. Larson",
     "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. -Steve Jobs",
@@ -60,18 +58,9 @@ for i in range(num_of_tasks):
     l1 = [list_to_do_time[i], list_of_deadline[i]]
     combineTime.append(l1)
 
-# time1 = list_to_do_time[0]
-# localTimeHour = time.localtime().tm_hour
-# localTimeMin = time.localtime().tm_min
-# print(localTimeHour, localTimeMin)
-# print(time1, type(time1[:2]), time1[3:])
-
 for keys, values in zip(list_to_do, combineTime):
     dicTime[keys] = values
 
-for i in range(num_of_tasks):
-    notifyTime.append(list_to_do_time[i])
-    notifyTime.append(list_of_deadline[i])
 print(f"Have to complete following tasks! \n{list_to_do}, {list_of_deadline}, {list_to_do_time}")
 # while 1:
 #     if int(time1[:2]) == localTimeHour and int(time1[3:]) == localTimeMin:
