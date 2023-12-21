@@ -1,4 +1,4 @@
-# interesting fact about for loop python while using range!- 
+# interesting fact about for loop python while using range!
 x = 3
 for i in range(x):   # after reading once,  this line wouldn't be executed twice... only the content will be repeated. 
   print(i)
