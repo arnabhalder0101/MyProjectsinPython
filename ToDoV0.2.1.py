@@ -85,7 +85,7 @@ while n != num_of_tasks:
     # completing the 1st one!
     if n > 0:
         # comparing the difference with n-1 value and recent value
-        if timeMinDiff(list_to_do_time[n - 1], list_of_deadline[0]) > timeMinDiff(list_to_do_time[n - 1], time_todo):
+        if timeMinDiff(list_to_do_time[n - 1], list_of_deadline[n]) > timeMinDiff(list_to_do_time[n - 1], time_todo):
             print("\n***Invalid Time for start the work!***")
             print("You must finish the 1st Task, before starting the 2nd Task!")
             print(f"Enter Task{n + 1} again:")
