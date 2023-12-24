@@ -2,16 +2,18 @@ import testTwilio1
 import time
 import random
 
+
 # updates -
 # -------
-# Function for to-do list - use schedule (later) -NN
-# write what the code does for future use -DN
-# add code to send remainder for deadline is coming in X mins! Finish the job... -DN
+# Function for to-do list - use schedule (later)
+# arrange times orderly manner
+# user can add in any time format - not only 24 hours needed! Fix it!
+# write what the code does for future use
+# add code to send remainder for deadline is coming in 5 mins! Finish the job...
+# notify in the meantime,(avg time notify the) user if the diff bet deadline and starting is more than 6 hours!
 
-# notify in the meantime,(avg time notify the) user if the diff bet deadline and starting is more than 6 hours! -NDY
-# user can add in any time format - not only 24 hours needed! Fix it! -NDY
-# arrange times orderly manner -NDY
 # -----------------
+
 
 def timeMinDiff(t1, t2):
     tH1 = int(t1[:2])
@@ -37,7 +39,7 @@ Quotes = [
     "Believe you can and you're halfway there. -Theodore Roosevelt",
     "The best way to predict the future is to invent it. -Alan Kay",
     "Just do your duty, God will give what you deserve. If you do 100 will get 100, do 90, will only get 90. -Bhagabad Gita",
-    "DO your job people will do theres -Unknown",
+    "Do your job people will do there -Unknown",
     "Be disciplined! Decide you're a Winner or a Fucking Looser. Do what you're supposed to do! Be Disciplined... -Andrew Tate",
     "The only limit to our realization of tomorrow will be our doubts of today. -Franklin D. Roosevelt",
     "The best preparation for tomorrow is doing your best today. -H. Jackson Brown Jr.",
@@ -73,6 +75,7 @@ dicTime = {}
 
 sec = 0
 n = 0
+varSpot = 0
 # inputs from user
 while n != num_of_tasks:
     print(f"Task{n + 1}:")
@@ -85,11 +88,13 @@ while n != num_of_tasks:
     # completing the 1st one!
     if n > 0:
         # comparing the difference with n-1 value and recent value
-        if timeMinDiff(list_to_do_time[n - 1], list_of_deadline[n]) > timeMinDiff(list_to_do_time[n - 1], time_todo):
+        if timeMinDiff(list_to_do_time[n - 1], list_of_deadline[varSpot]) > timeMinDiff(list_to_do_time[n - 1], time_todo):
             print("\n***Invalid Time for start the work!***")
             print("You must finish the 1st Task, before starting the 2nd Task!")
             print(f"Enter Task{n + 1} again:")
             continue
+
+        varSpot += 1  # getting proper spot index for line 91; updating it if, IF condition is false!
 
     list_to_do.append(task)
     list_to_do_time.append(time_todo)
@@ -135,7 +140,7 @@ while run:
             "\n---------"
             f"\n{Quotes[random.randint(0, len(Quotes) - 1)]}", "+916296790017")
 
-        print(f"\nMessage sent! for - {dicKeys[0]}\n")
+        print(f"\nDeadline Message sent! for - {dicKeys[0]}\n")
 
         # pop the dictionary -
         dicTime.pop(dicKeys[0])
